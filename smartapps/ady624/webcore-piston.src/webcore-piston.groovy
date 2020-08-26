@@ -5049,9 +5049,9 @@ private Map getIncidents(rtData, name) {
 
 
 private initIncidents(rtData) {
-	//if (rtData.incidents instanceof List) return;
-	//def incidentThreshold = now() - 604800000
-	//rtData.incidents = hubUID ? [] : location.activeIncidents.collect{[date: it.date.time, title: it.getTitle(), message: it.getMessage(), args: it.getMessageArgs(), sourceType: it.getSourceType()]}.findAll{ it.date >= incidentThreshold }
+	if (rtData.incidents instanceof List) return;
+	def incidentThreshold = now() - 604800000
+	rtData.incidents = hubUID ? [] : location.activeIncidents.collect{[date: it.date.time, title: it.getTitle(), message: it.getMessage(), args: it.getMessageArgs(), sourceType: it.getSourceType()]}.findAll{ it.date >= incidentThreshold }
 }
 
 private Map getVariable(rtData, name) {
